@@ -44,8 +44,13 @@ npm run start
 Then open `http://localhost:3000`.
 
 ### Q4
-```bash
+Build and run from PowerShell:
+```powershell
 cd Q4
-python3 generate_wasm.py
+$env:GOOS = 'js'
+$env:GOARCH = 'wasm'
+go build -o arithmetic.wasm main.go
+Remove-Item Env:GOOS
+Remove-Item Env:GOARCH
 node host.js
 ```
